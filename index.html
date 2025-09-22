@@ -59,6 +59,26 @@
             margin: 30px auto 40px auto;
             text-align: center;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 20px auto;
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        th,
+        td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #333;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -83,7 +103,36 @@
         <h2 id="result"></h2>
     </div>
 
+    <table>
+        <tr>
+            <th>Grade</th>
+            <th>GPA</th>
+        </tr>
+        <tr>
+            <td>HD</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>P</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>F</td>
+            <td>1.5</td>
+        </tr>
+    </table>
+
+    <br>
     <hr>
+
     <footer>
         <p>&copy; 2025 Blagoje Ljubojevic - GPA Calculator</p>
     </footer>
@@ -95,12 +144,8 @@
             let gpa3 = parseFloat(document.getElementById("GPA3").value) || 0;
             let gpa4 = parseFloat(document.getElementById("GPA4").value) || 0;
 
-            if ((gpa1 + gpa2 + gpa3 + gpa4) < 0 || (gpa1 + gpa2 + gpa3 + gpa4) > 28) {
-                document.getElementById("result").innerHTML = "INVALID INPUT";
-            } else {
-                let avgGPA = (gpa1 + gpa2 + gpa3 + gpa4) / 4;
-                document.getElementById("result").innerHTML = `Your GPA is: ${avgGPA}`;
-            }
+            let avgGPA = (gpa1 + gpa2 + gpa3 + gpa4) / 4;
+            document.getElementById("result").innerHTML = `Your GPA is: ${avgGPA}`;
         }
     </script>
 </body>
