@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        h1,
+        h2 {
+            color: white;
+        }
+
+        p {
+            color: #e0e0e0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input {
+            width: 100px;
+            height: 20px;
+            font-size: small;
+            color: white;
+            padding: 5px;
+            margin-bottom: 10px;
+            background-color: #1e1e1e;
+            border: 1px solid #333333;
+        }
+
+        .output {
+            border: 2px solid #333;
+            width: 300px;
+            height: 70px;
+            margin: 30px auto 40px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GPA Calculator</h1>
+    <p><b>1-7 scale</b></p>
+
+    <hr><br>
+
+    <p><strong>Enter the gpa of each subject you are doing this semester</strong></p><br>
+    <div id="semester">
+        <input id="GPA1" type="text" placeholder="1-7">
+        <input id="GPA2" type="text" placeholder="1-7">
+        <input id="GPA3" type="text" placeholder="1-7">
+        <input id="GPA4" type="text" placeholder="1-7">
+    </div>
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div class="output">
+        <h2 id="result"></h2>
+    </div>
+
+    <hr>
+    <footer>
+        <p>&copy; 2025 Blagoje Ljubojevic - GPA Calculator</p>
+    </footer>
+
+    <script>
+        function calculate() {
+            let gpa1 = parseFloat(document.getElementById("GPA1").value) || 0;
+            let gpa2 = parseFloat(document.getElementById("GPA2").value) || 0;
+            let gpa3 = parseFloat(document.getElementById("GPA3").value) || 0;
+            let gpa4 = parseFloat(document.getElementById("GPA4").value) || 0;
+
+            if ((gpa1 + gpa2 + gpa3 + gpa4) < 0 || (gpa1 + gpa2 + gpa3 + gpa4) > 28) {
+                document.getElementById("result").innerHTML = "INVALID INPUT";
+            } else {
+                let avgGPA = (gpa1 + gpa2 + gpa3 + gpa4) / 4;
+                document.getElementById("result").innerHTML = `Your GPA is: ${avgGPA}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
